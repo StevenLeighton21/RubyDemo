@@ -18,10 +18,13 @@ b. Returns the following:
          etc...
 
   > list of webpages with most unique page views also ordered
-  
+
      e.g.:
          /about/2   8 unique views
          /index     5 unique views
          etc...
 
+Make sure you have `ruby` installed on the system. From the command line (at the top level of the project):
+Run `gem install rspec`
 Run tests with `rspec spec/*`
+Run the script with `./parser.rb testdata/webserver.log`
