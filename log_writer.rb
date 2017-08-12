@@ -11,10 +11,7 @@ class LogWriter
       end
     end
 
-    #sort by to ensure printed in descending order
-    total_visits.sort_by{|key, value| value}.reverse.to_h.each do |key, value|
-      puts "#{key} #{value} visits"
-    end
+    sort_and_print_log_entries(total_visits, "visits")
   end
 
   def print_unique_visits log_entries
@@ -29,8 +26,13 @@ class LogWriter
       end
     end
 
-    unique_visits.sort_by{|key, value| value}.reverse.to_h.each do |key, value|
-      puts "#{key} #{value} unique visitors"
-    end
+    sort_and_print_log_entries(unique_visits, "unique visitors")
   end
+
+  private
+    def sort_and_print_log_entries(log_entries, additional_string = '')
+      log_entries.sort_by{|key, value| value}.reverse.to_h.each do |key, value|
+        puts "#{key} #{value} #{additional_string}"
+      end
+    end
 end
